@@ -34,7 +34,6 @@ int main()
     };
 
     menu(perpustakaan, MAX_BUKU);
-
     return 0;
 }
 
@@ -46,12 +45,12 @@ void menu(Buku buku[], int jumlahBuku)
     do
     {
         cout << "~~~~~~~~~~~~~ MENU ~~~~~~~~~~~~~" << endl;
-        cout << "1. Daftar Buku" << endl;
-        cout << "2. Cari Buku berdasarkan Judul" << endl;
-        cout << "3. Pinjam Buku" << endl;
-        cout << "4. Kembalikan Buku" << endl;
-        cout << "5. Jumlah Total Buku" << endl;
-        cout << "6. Keluar" << endl;
+        cout << "1. Daftar Buku                  " << endl;
+        cout << "2. Cari Buku berdasarkan Judul  " << endl;
+        cout << "3. Pinjam Buku                  " << endl;
+        cout << "4. Kembalikan Buku              " << endl;
+        cout << "5. Jumlah Total Buku            " << endl;
+        cout << "6. Keluar                       " << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
         cout << "Pilih Menu (1-6): ";
         cin >> pilihan;
