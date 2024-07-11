@@ -2,29 +2,36 @@
 #include <string>
 using namespace std;
 
-// Deklarasi struktur Buku
 struct Buku
 {
     string judul;
     string penulis;
     int tahunTerbit;
-    double harga;
+    string penerbit;
+    bool tersedia;
 };
 
-// Deklarasi fungsi
 void menu(Buku[], int);
 void tampilkanDaftarBuku(Buku[], int);
 void cariBuku(Buku[], int, string);
+void pinjamBuku(Buku[], int);
+void kembalikanBuku(Buku[], int);
 
 int main()
 {
-    const int MAX_BUKU = 5; // Jumlah maksimum buku dalam perpustakaan
+    const int MAX_BUKU = 10;
     Buku perpustakaan[MAX_BUKU] = {
-        {"Buku A", "Penulis A", 2020, 10000},
-        {"Buku B", "Penulis B", 2021, 20000},
-        {"Buku C", "Penulis C", 2022, 30000},
-        {"Buku D", "Penulis D", 2023, 40000},
-        {"Buku E", "Penulis E", 2024, 50000}};
+        {"Buku A", "Penulis A", 2020, "Penerbit A", true},
+        {"Buku B", "Penulis B", 2021, "Penerbit B", true},
+        {"Buku C", "Penulis C", 2022, "Penerbit C", true},
+        {"Buku D", "Penulis D", 2023, "Penerbit D", true},
+        {"Buku E", "Penulis E", 2024, "Penerbit E", true},
+        {"Buku F", "Penulis F", 2025, "Penerbit F", true},
+        {"Buku G", "Penulis G", 2026, "Penerbit G", true},
+        {"Buku H", "Penulis H", 2027, "Penerbit H", true},
+        {"Buku I", "Penulis I", 2028, "Penerbit I", true},
+        {"Buku J", "Penulis J", 2029, "Penerbit J", true},
+    };
 
     menu(perpustakaan, MAX_BUKU);
 
@@ -41,10 +48,12 @@ void menu(Buku buku[], int jumlahBuku)
         cout << "~~~~~~~~~~~~~ MENU ~~~~~~~~~~~~~" << endl;
         cout << "1. Daftar Buku" << endl;
         cout << "2. Cari Buku berdasarkan Judul" << endl;
-        cout << "3. Jumlah Total Buku" << endl;
-        cout << "4. Keluar" << endl;
+        cout << "3. Pinjam Buku" << endl;
+        cout << "4. Kembalikan Buku" << endl;
+        cout << "5. Jumlah Total Buku" << endl;
+        cout << "6. Keluar" << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-        cout << "Pilih Menu (1-4): ";
+        cout << "Pilih Menu (1-6): ";
         cin >> pilihan;
 
         switch (pilihan)
@@ -59,23 +68,29 @@ void menu(Buku buku[], int jumlahBuku)
             cariBuku(buku, jumlahBuku, judulCari);
             break;
         case 3:
+            pinjamBuku(buku, jumlahBuku);
+            break;
+        case 4:
+            kembalikanBuku(buku, jumlahBuku);
+            break;
+        case 5:
             cout << "Jumlah total buku dalam perpustakaan: " << jumlahBuku << endl;
             cout << "Tekan Enter untuk kembali ke menu...";
+            cin.ignore();
             cin.get();
-            cin.get();
-            cout << endl;
             cout << endl;
             cout << endl;
             cout << endl;
             break;
-        case 4:
+        case 6:
             cout << "Terima kasih telah menggunakan aplikasi perpustakaan digital." << endl;
             break;
         default:
             cout << "Pilihan tidak valid. Silakan pilih kembali." << endl;
             break;
         }
-    } while (pilihan != 4);
+
+    } while (pilihan != 6);
 }
 
 void tampilkanDaftarBuku(Buku buku[], int jumlahBuku)
@@ -86,14 +101,17 @@ void tampilkanDaftarBuku(Buku buku[], int jumlahBuku)
         cout << "Buku ke-" << i + 1 << endl;
         cout << "Judul   : " << buku[i].judul << endl;
         cout << "Penulis : " << buku[i].penulis << endl;
+        cout << "Penerbit: " << buku[i].penerbit << endl;
         cout << "Tahun   : " << buku[i].tahunTerbit << endl;
-        cout << "Harga   : Rp " << buku[i].harga << endl;
+        if (buku[i].tersedia)
+            cout << "Status  : Tersedia" << endl;
+        else
+            cout << "Status  : Dipinjam" << endl;
         cout << "-----------------------" << endl;
     }
 
-    // fungsi enter untuk kembali ke menu
     cout << "Tekan Enter untuk kembali ke menu...";
-    cin.get();
+    cin.ignore();
     cin.get();
     cout << endl;
     cout << endl;
@@ -111,13 +129,16 @@ void cariBuku(Buku buku[], int jumlahBuku, string judulCari)
             cout << "Buku ditemukan:" << endl;
             cout << "Judul   : " << buku[i].judul << endl;
             cout << "Penulis : " << buku[i].penulis << endl;
+            cout << "Penerbit: " << buku[i].penerbit << endl;
             cout << "Tahun   : " << buku[i].tahunTerbit << endl;
-            cout << "Harga   : Rp " << buku[i].harga << endl;
+            if (buku[i].tersedia)
+                cout << "Status  : Tersedia" << endl;
+            else
+                cout << "Status  : Dipinjam" << endl;
             ditemukan = true;
 
-            // fungsi enter untuk kembali ke menu
             cout << "Tekan Enter untuk kembali ke menu...";
-            cin.get();
+            cin.ignore();
             cout << endl;
             cout << endl;
             cout << endl;
@@ -129,4 +150,76 @@ void cariBuku(Buku buku[], int jumlahBuku, string judulCari)
     {
         cout << "Buku dengan judul '" << judulCari << "' tidak ditemukan." << endl;
     }
+}
+
+void pinjamBuku(Buku buku[], int jumlahBuku)
+{
+    int nomorBuku;
+    cout << "Masukkan nomor buku yang ingin dipinjam (1-" << jumlahBuku << "): ";
+    cin >> nomorBuku;
+
+    if (nomorBuku < 1 || nomorBuku > jumlahBuku)
+    {
+        cout << "Nomor buku tidak valid." << endl;
+        return;
+    }
+
+    int index = nomorBuku - 1;
+
+    if (!buku[index].tersedia)
+    {
+        cout << "Buku dengan judul '" << buku[index].judul << "' sedang tidak tersedia untuk dipinjam." << endl;
+    }
+    else
+    {
+        buku[index].tersedia = false;
+
+        cout << "Anda berhasil meminjam buku dengan judul '" << buku[index].judul << "'." << endl;
+        cout << "Detail Peminjaman:" << endl;
+        cout << "Judul   : " << buku[index].judul << endl;
+        cout << "Penulis : " << buku[index].penulis << endl;
+        cout << "Penerbit: " << buku[index].penerbit << endl;
+        cout << "Tahun   : " << buku[index].tahunTerbit << endl;
+        cout << "Silakan kembalikan dalam 5 hari." << endl;
+    }
+
+    cout << "Tekan Enter untuk kembali ke menu...";
+    cin.ignore();
+    cin.get();
+    cout << endl;
+    cout << endl;
+    cout << endl;
+}
+
+void kembalikanBuku(Buku buku[], int jumlahBuku)
+{
+    int nomorBuku;
+    cout << "Masukkan nomor buku yang ingin dikembalikan (1-" << jumlahBuku << "): ";
+    cin >> nomorBuku;
+
+    if (nomorBuku < 1 || nomorBuku > jumlahBuku)
+    {
+        cout << "Nomor buku tidak valid." << endl;
+        return;
+    }
+
+    int index = nomorBuku - 1;
+
+    if (buku[index].tersedia)
+    {
+        cout << "Buku dengan judul '" << buku[index].judul << "' sudah tersedia di perpustakaan." << endl;
+    }
+    else
+    {
+        buku[index].tersedia = true;
+
+        cout << "Anda berhasil mengembalikan buku dengan judul '" << buku[index].judul << "'." << endl;
+    }
+
+    cout << "Tekan Enter untuk kembali ke menu...";
+    cin.ignore();
+    cin.get();
+    cout << endl;
+    cout << endl;
+    cout << endl;
 }
