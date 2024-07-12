@@ -22,7 +22,7 @@ int main()
     const int MAX_BUKU = 10;
     Buku perpustakaan[MAX_BUKU] = {
         {"Sapiens: A Brief History of Humankind", "Yuval Noah Harari", 2011, "Harper", true},
-        {"q", "Michelle Obama", 2018, "Crown", true},
+        {"Becoming", "Michelle Obama", 2018, "Crown", true},
         {"The Power of Habit", "Charles Duhigg", 2012, "Random House", true},
         {"Educated", "Tara Westover", 2018, "Random House", true},
         {"The Subtle Art of Not Giving a F*ck", "Mark Manson", 2016, "HarperOne", true},
@@ -51,7 +51,8 @@ void menu(Buku buku[], int jumlahBuku)
         cout << "3. Pinjam Buku                  " << endl;
         cout << "4. Kembalikan Buku              " << endl;
         cout << "5. Jumlah Total Buku            " << endl;
-        cout << "6. Keluar                       " << endl;
+        cout << "6. biodata kelommpok            " << endl;
+        cout << "7. Keluar                       " << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
         cout << "Pilih Menu (1-6): ";
         cin >> pilihan;
