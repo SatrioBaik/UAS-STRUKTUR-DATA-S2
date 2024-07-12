@@ -16,6 +16,7 @@ void tampilkanDaftarBuku(Buku[], int);
 void cariBuku(Buku[], int, string);
 void pinjamBuku(Buku[], int);
 void kembalikanBuku(Buku[], int);
+void biodataKelompok();
 
 int main()
 {
@@ -84,6 +85,9 @@ void menu(Buku buku[], int jumlahBuku)
             cout << endl;
             break;
         case 6:
+            biodataKelompok();
+            break;
+        case 7:
             cout << "Terima kasih telah menggunakan aplikasi perpustakaan digital." << endl;
             break;
         default:
@@ -223,4 +227,22 @@ void kembalikanBuku(Buku buku[], int jumlahBuku)
     cout << endl;
     cout << endl;
     cout << endl;
+}
+
+void biodataKelompok()
+{
+    cout << "~~~~~~~~~ BIODATA KELOMPOK 6 ~~~~~~~~~" << endl;
+    cout << "1.NAZAR FADILAH                " << endl;
+    cout << "2.BUDIANNOR                    " << endl;
+    cout << "3.SATRIO WICASKONO             " << endl;
+    cout << "4.ISMATUL HAWA                 " << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+    cout << "Tekan Enter untuk kembali ke menu...";
+    cin.ignore();
+    cin.get();
+    cout << endl;
+    cout << endl;
+    cout << endl;
+
+    main();
 }
