@@ -21,19 +21,20 @@ int main()
 {
     const int MAX_BUKU = 10;
     Buku perpustakaan[MAX_BUKU] = {
-        {"Buku A", "Penulis A", 2020, "Penerbit A", true},
-        {"Buku B", "Penulis B", 2021, "Penerbit B", true},
-        {"Buku C", "Penulis C", 2022, "Penerbit C", true},
-        {"Buku D", "Penulis D", 2023, "Penerbit D", true},
-        {"Buku E", "Penulis E", 2024, "Penerbit E", true},
-        {"Buku F", "Penulis F", 2025, "Penerbit F", true},
-        {"Buku G", "Penulis G", 2026, "Penerbit G", true},
-        {"Buku H", "Penulis H", 2027, "Penerbit H", true},
-        {"Buku I", "Penulis I", 2028, "Penerbit I", true},
-        {"Buku J", "Penulis J", 2029, "Penerbit J", true},
+        {"Sapiens: A Brief History of Humankind", "Yuval Noah Harari", 2011, "Harper", true},
+        {"q", "Michelle Obama", 2018, "Crown", true},
+        {"The Power of Habit", "Charles Duhigg", 2012, "Random House", true},
+        {"Educated", "Tara Westover", 2018, "Random House", true},
+        {"The Subtle Art of Not Giving a F*ck", "Mark Manson", 2016, "HarperOne", true},
+        {"Atomic Habits", "James Clear", 2018, "Avery", true},
+        {"The Alchemist", "Paulo Coelho", 1988, "HarperOne", true},
+        {"The Four Agreements", "Don Miguel Ruiz", 1997, "Amber-Allen Publishing", true},
+        {"Thinking, Fast and Slow", "Daniel Kahneman", 2011, "Farrar, Straus and Giroux", true},
+        {"The Catcher in the Rye", "J.D. Salinger", 1951, "Little, Brown and Company", true},
     };
 
     menu(perpustakaan, MAX_BUKU);
+
     return 0;
 }
 
