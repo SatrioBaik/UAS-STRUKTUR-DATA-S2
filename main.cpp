@@ -17,6 +17,7 @@ void cariBuku(Buku[], int, string);
 void pinjamBuku(Buku[], int);
 void kembalikanBuku(Buku[], int);
 void biodataKelompok();
+void closeProgam();
 
 int main()
 {
@@ -88,10 +89,17 @@ void menu(Buku buku[], int jumlahBuku)
             biodataKelompok();
             break;
         case 7:
-            cout << "Terima kasih telah menggunakan aplikasi perpustakaan digital." << endl;
+            closeProgam();
             break;
         default:
-            cout << "Pilihan tidak valid. Silakan pilih kembali." << endl;
+            cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+            cout << "~~~                                             ~~~" << endl;
+            cout << "~~~ Pilihan tidak valid. Silakan pilih kembali  ~~~" << endl;
+            cout << "~~~                                             ~~~" << endl;
+            cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+            cout << endl;
+            cout << endl;
+            cout << endl;
             break;
         }
 
@@ -231,6 +239,10 @@ void kembalikanBuku(Buku buku[], int jumlahBuku)
 
 void biodataKelompok()
 {
+
+    cout << endl;
+    cout << endl;
+    cout << endl;
     cout << "~~~~~~~~~ BIODATA KELOMPOK 6 ~~~~~~~~~" << endl;
     cout << "1.NAZAR FADILAH                " << endl;
     cout << "2.BUDIANNOR                    " << endl;
@@ -245,4 +257,18 @@ void biodataKelompok()
     cout << endl;
 
     main();
+}
+
+void closeProgam()
+{
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+    cout << "~~~                                             ~~~" << endl;
+    cout << "~~~ Terima kasih telah menggunakan aplikasi ini ~~~" << endl;
+    cout << "~~~                                             ~~~" << endl;
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+    cout << endl;
+    cout << endl;
+    cout << endl;
+
+    exit(0);
 }
