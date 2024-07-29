@@ -246,7 +246,7 @@ void biodataKelompok()
     cout << "~~~~~~~~~ BIODATA KELOMPOK 6 ~~~~~~~~~" << endl;
     cout << "1.NAZAR FADILAH                " << endl;
     cout << "2.BUDIANNOR                    " << endl;
-    cout << "3.SATRIO WICASKONO             " << endl;
+    cout << "3.SATRIO WICAKSONO             " << endl;
     cout << "4.ISMATUL HAWA                 " << endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
     cout << "Tekan Enter untuk kembali ke menu...";
